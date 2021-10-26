@@ -14,7 +14,7 @@ fave_food2 = "burgers"
 print("I love to eat {} and {}." .format(
     fave_food1, fave_food2))  # with .format()
 print(f"I love to eat {fave_food1} and {fave_food2}.")  # with an f string
-# 5. Bonus
+# 5. Bonus string
 str_1 = "Hello my name is %s" % "Jonel,"
 str_2 = "My favorite number is %d." % 2
 print(str_1, str.lower(str_2))
