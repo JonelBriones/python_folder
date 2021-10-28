@@ -84,7 +84,7 @@ def number_of_oceans_or_fingers_or_continents():
 
 
 print(number_of_oceans_or_fingers_or_continents())
-# print 100, 10, 7
+# print 100, 10
 
 # 9
 
@@ -101,7 +101,7 @@ print(number_of_days_in_a_week_silicon_or_triangle_sides(2, 3))
 print(number_of_days_in_a_week_silicon_or_triangle_sides(5, 3))
 print(number_of_days_in_a_week_silicon_or_triangle_sides(2, 3) +
       number_of_days_in_a_week_silicon_or_triangle_sides(5, 3))
-# print 7,3,14,3,21,3
+# print 7,14,21
 
 # 10
 
@@ -112,7 +112,7 @@ def addition(b, c):
 
 
 print(addition(3, 5))
-# print 8,10
+# print 8
 
 # 11
 b = 500
@@ -194,4 +194,4 @@ def bar():
 
 y = foo()
 print(y)
-# print 1,3,5,35,10
+# print 1,3,5,10
