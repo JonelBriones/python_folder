@@ -9,13 +9,13 @@ print(number_of_food_groups())
 # 2
 
 
-def number_of_military_branches():
+"""def number_of_military_branches():
     return 5
 
 
 print(number_of_days_in_a_week_silicon_or_triangle_sides() +
       number_of_military_branches())
-# print 5
+# print 5"""
 
 # 3
 
@@ -53,12 +53,12 @@ print(x)
 # 6
 
 
-def add(b, c):
+"""def add(b, c):
     print(b+c)
 
 
 print(add(1, 2) + add(2, 3))
-# print 8
+# print 8"""
 
 # 7
 
