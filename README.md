@@ -1,1 +1,1 @@
-# Python assignments from CodingDojo
+# Python assignments 10/25- 12/17 CodingDojo
