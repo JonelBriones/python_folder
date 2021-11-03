@@ -35,11 +35,17 @@ students = [
 ]
 
 
-def iterateDictionary(students):
-    print((students[0]))
-    print((students[1]))
-    print((students[2]))
-    print((students[3]))
+def iterateDictionary(list):
+    print((list[0]))
+    print((list[1]))
+    print((list[2]))
+    print((list[3]))
+    print(len(list))
+    for x in range(0, len(list)):
+        output = ""
+        for key, val in list[x].items():
+            output += f" {key} - {val},"
+        print(output)
 
 
 (iterateDictionary(students))
