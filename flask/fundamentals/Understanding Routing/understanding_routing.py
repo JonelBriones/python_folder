@@ -1,6 +1,4 @@
-from flask import Flask  # Import Flask to allow us to create our app
-# Create a new instance of the Flask class called "app"
-app = Flask(__name__)
+from flask import Flask, render_template
 
 
 # The "@" decorator associates this route with the function immediately following
