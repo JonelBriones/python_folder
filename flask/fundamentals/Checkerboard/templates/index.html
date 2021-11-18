@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='/css/style.css') }}" >
+    <title>Document</title>
+</head>
+<body>
+    <h1>Checkerboard</h1>
+    <div class="wrapper">
+        <p>Place a number in the link to create Checkerboard</p>
+        <div class="checkerboard_container">
+            <table>
+                {% for x in range(0,num): %}
+                <tr>
+                    {% for i in range(0,num): %}
+                        <td class="color{{ (i+x)%2+1}}"></td>
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</body>
+</html>
