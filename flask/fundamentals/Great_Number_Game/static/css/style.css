@@ -1,0 +1,11 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+p {
+  margin: 20px auto;
+  align-items: center;
+  text-align: center;
+}
