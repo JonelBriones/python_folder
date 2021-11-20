@@ -16,6 +16,16 @@
             <center>
                 <input type="text" name="guess"  >
                 <input type="submit">
+                {% if 'guess' in session: %}
+                    {% if session['guess'] == session['num']%}
+                        <p>YOU GOT THE NUMBER!</p>
+
+                    {% elif session['guess'] < session['num'] %}
+                        <p>Your number is too low!</p>
+                    {% elif session['guess'] > session['num'] %}
+                            <p>Your number is too High</p>
+                    {% endif %}
+                {% endif %}
             </center>
         </form>
 </style>
