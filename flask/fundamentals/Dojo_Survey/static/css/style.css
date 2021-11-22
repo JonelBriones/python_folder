@@ -1,0 +1,52 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 600px;
+  height: 350px;
+  margin: 50px auto;
+  border: 2px solid black;
+  display: flex;
+}
+
+#form {
+  padding: 20px;
+  width: auto;
+}
+.description {
+  width: 200px;
+  display: inline-block;
+  margin-bottom: 20px;
+}
+.box_right {
+  width: 200px;
+  margin-left: 100px;
+  margin-bottom: 20px;
+  border: 2px solid black;
+}
+.box_right1 {
+  width: 196px;
+  height: 20px;
+  margin-left: 100px;
+  margin-bottom: 20px;
+  border: 2px solid black;
+}
+.comment {
+  display: flex;
+  width: 500px;
+  height: 80px;
+  border: 2px solid black;
+}
+.sbtn {
+  width: 80px;
+  height: 30px;
+  justify-content: right;
+  border: 2px solid black;
+}
+.sbtn_right {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+}
