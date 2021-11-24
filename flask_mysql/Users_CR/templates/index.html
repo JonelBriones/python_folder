@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}"> -->
+    <title>Users</title>
+</head>
+<body>
+    <h1>All Users</h1>
+    <div class="container">
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Full Name</th>
+                <th>Email</th>
+                <th>Created At</th>
+            </tr>
+            {% for one_user in all_users %}
+            <tr>
+                <td>{{one_user.id}}</td>
+                <td >{{one_user.first_name}} {{one_user.last_name}}</td>
+                <td>{{one_user.email}}</td>
+                <td>{{one_user.created_at}}</td>
+            {% endfor %}
+            </tr>
+        </table>
+    </div>
+    <a href="/new"><input type="submit" Value="Add"></a>
+    </form>
+</body>
+</html>

@@ -14,9 +14,9 @@ def index():
 @app.route('/survey', methods=["POST"])
 def survey():
     session['user_name'] = request.form['name']
-    # session['user_location'] = request.form['location']
-    # session['user_langauge'] = request.form['langauge']
-    # session['user_comment'] = request.form['comment']
+    session['user_location'] = request.form['location']
+    session['user_langauge'] = request.form['langauge']
+    session['user_comment'] = request.form['comment']
     return redirect('/result')
 
 
