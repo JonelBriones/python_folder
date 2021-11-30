@@ -19,13 +19,13 @@ class Name:
     def save(cls, data):
         query = "INSERT INTO friends ( first_name , last_name , occupation , created_at, updated_at ) VALUES ( %(fname)s , %(lname)s , %(occ)s , NOW() , NOW() );"
         # data is a dictionary that will be passed into the save method from server.py
-        return connectToMySQL('first_flask_mysql').query_db(query, data)
+        return connectToMySQL('insert_db').query_db(query, data)
 
     @classmethod
     def get_all(cls):
         query = "SELECT * FROM friends;"
         # make sure to call the connectToMySQL function with the schema you are targeting. #(change name in '  ')
-        results = connectToMySQL('first_flask_mysql').query_db(query)
+        results = connectToMySQL('insert_db').query_db(query)
         # Create an empty list to append our instances of friends
         friends = []
         # Iterate over the db results and create instances of friends with cls.
