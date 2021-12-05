@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+    <title>Document</title>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="container">
+            <div class="new_author">
+                <h1>New Books</h1>
+                <form action="/authors/create_books/process" method="POST">
+                    <label for="title">Title:</label>
+                    <input type="text" name="title" id="">
+                    <label for="num_of_pages">Number of Pages:</label>
+                    <input type="number" name="num_of_pages" id="">
+                    <input type="submit" value="Create">
+                </form>
+            </div>
+            <div class="all_authors">
+                <h1>All Books</h1>
+                <div class="list_books">
+                    <ul>
+                        <!-- using jinja for loop for 'blank' is what bring retrieves data back -->
+                        {% for book in get_all_books%} 
+                        <a href="/book/show/{{book.title}}"><li>{{book.title}}</li></a>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+            <div><a href="/authors">Home</a></div>
+            
+        </div>
+    </div>
+</body>
+</html>

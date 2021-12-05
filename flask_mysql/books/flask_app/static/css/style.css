@@ -1,0 +1,8 @@
+li {
+  list-style-type: none;
+}
+.list_author {
+  width: 300px;
+  height: 400px;
+  border: 2px solid black;
+}
