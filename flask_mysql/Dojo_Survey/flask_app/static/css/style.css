@@ -10,7 +10,6 @@
   border: 2px solid black;
   display: flex;
 }
-
 #form {
   padding: 20px;
   width: auto;
@@ -49,4 +48,12 @@
   display: flex;
   justify-content: flex-end;
   margin-top: 10px;
+}
+.message {
+  justify-content: center;
+  display: flex;
+  width: auto;
+  height: 200px;
+  border: 2px solid black;
+  margin-top: 20px;
 }
