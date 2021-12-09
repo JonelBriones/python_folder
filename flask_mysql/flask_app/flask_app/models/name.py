@@ -1,5 +1,10 @@
 # import the function that will return an instance of a connection
 from flask_app.config.mysqlconnection import connectToMySQL
+from flask_bcrypt import Bcrypt
+bcrypt = Bcrypt(app)     # we are creating an object called bcrypt,
+# which is made by invoking the function Bcrypt with our app as an argument
+
+
 # model the class after the friend table from our database
 
 # replace Name for method name
