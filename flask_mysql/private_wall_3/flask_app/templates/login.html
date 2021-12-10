@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login_style.css') }}">
+    <title>Document</title>
+</head>
+<body>
+    
+        <h1>{{user.first_name}} Logged In</h1>
+        <table>
+            <tr>
+                <th>Full Name</th>
+                <th>Email</th>
+            </tr>
+            <tr>
+                <td>{{user.first_name}} {{user.last_name}}</td>
+                <td>{{user.email}}</td>
+            </tr>
+        </table>
+        <div class="container">
+        <div class="view-messages">
+            <h3>{{messages|length}} Messages(s) for You</h3>
+            <div class="message">
+                {% for message in messages%}
+                    <form action="/delete_message/" method="POST">
+                        <div class="message-info">
+                            <p>{{message.sender}} said {{message.created_at}}</p>
+                            <p class="message-gap">{{message.message}}</p>
+                        </div>
+                        <div class="delete-btn">
+                            <a href="/delete_message/{{message.id}}">Delete</a>
+                        </div>
+                    </form>
+                {% endfor %}
+            </div>
+            
+        </div>
+        <div class="send-messages">
+            <h3>Send Mesages</h3>
+            <div class="message">
+                {% for friend in friends%}
+                    {% if friend.id != session.user_id%}
+                    <form action="/create_message" method="POST">
+                        <label for="receiver_id">Message {{friend.first_name}} </label>
+                        <input type="hidden" name="sender_id" value={{session.user_id}}>
+                        <input type="hidden" name="receiver.id" value="{{friend.id}}">
+                        <textarea name="message" id="" cols="30" rows="3"></textarea>
+                        <div class="delete-btn">
+                            <input type="submit" value="Send">
+                        </div>
+                    </form>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+        <a href="/logout">Logout</a>
+    </div>
+</body>
+</html>

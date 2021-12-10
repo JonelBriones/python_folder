@@ -33,15 +33,16 @@ class User:
         query = "INSERT INTO users ( first_name , last_name , email, password, created_at, updated_at ) VALUES ( %(fname)s , %(lname)s , %(email)s, %(password)s, NOW() , NOW() );"
         # data is a dictionary that will be passed into the save method from server.py
         print(query)
-        return connectToMySQL('login_and_registration').query_db(query, data)
+        return connectToMySQL('private_wall').query_db(query, data)
 
     @classmethod
     def get_all(cls):
         query = "SELECT * FROM users;"
         # make sure to call the connectToMySQL function with the schema you are targeting. #(change name in '  ')
-        results = connectToMySQL('login_and_registration').query_db(query)
+        results = connectToMySQL('private_wall').query_db(query)
         # Create an empty list to append our instances of friends
         users = []
+        print(users)
         # Iterate over the db results and create instances of friends with cls.
         for user in results:
             users.append(cls(user))
@@ -51,7 +52,7 @@ class User:
     def get_one(cls, data):
         query = "SELECT * FROM users WHERE id = %(id)s;"
         results = connectToMySQL(
-            'login_and_registration').query_db(query, data)
+            'private_wall').query_db(query, data)
         if len(results) == 0:
             return False
         return (cls(results[0]))

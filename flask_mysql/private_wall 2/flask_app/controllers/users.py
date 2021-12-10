@@ -1,11 +1,10 @@
-from flask_app.models.user import User
-from flask_app.models.login import Login
 from flask_app import app
 from flask import render_template, redirect, request, session, flash
+from flask_app.models.login import Login
+from flask_app.models.user import User
+from flask_app.models.message import Message
 from flask_bcrypt import Bcrypt
 bcrypt = Bcrypt(app)
-
-############ Register ###########
 
 
 @app.route('/')
@@ -29,15 +28,14 @@ def register():
         print(pw_hash)
         data = {
             "fname": request.form['fname'],
-            "lname": request.form['lname'],
+            "lname": request.form['fname'],
             "email": request.form['email'],
             "password": pw_hash
         }
         # will only save from data if password is confirmed
         user_id = User.save(data)
         session['user_id'] = user_id
-    return redirect('/dashboard')
-
+    return redirect('/home')
 
 ######### LOGIN ##########
 
@@ -68,7 +66,9 @@ def dashboard():
     data = {
         "id": session['user_id']
     }
-    return render_template("login.html", user=User.get_one(data))
+    get_all_users = User.get_all()
+    get_messages = Message.get_my_messages(data)
+    return render_template("login.html", user=User.get_one(data), get_all_users=get_all_users, get_messages=get_messages)
 
 
 @app.route('/logout')
@@ -77,3 +77,13 @@ def logout():
 
     # session.pop('user_id')
     return redirect("/home")
+
+
+@app.route('/create_message', methods=['POST'])
+def messages():
+    data = {
+        "user_id": session['user_id'],
+        "message": request.form["message"]
+    }
+    Message.save(data)
+    return redirect('/dashboard')

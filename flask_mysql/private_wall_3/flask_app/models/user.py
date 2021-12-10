@@ -33,13 +33,13 @@ class User:
         query = "INSERT INTO users ( first_name , last_name , email, password, created_at, updated_at ) VALUES ( %(fname)s , %(lname)s , %(email)s, %(password)s, NOW() , NOW() );"
         # data is a dictionary that will be passed into the save method from server.py
         print(query)
-        return connectToMySQL('login_and_registration').query_db(query, data)
+        return connectToMySQL('private_wall').query_db(query, data)
 
     @classmethod
     def get_all(cls):
         query = "SELECT * FROM users;"
         # make sure to call the connectToMySQL function with the schema you are targeting. #(change name in '  ')
-        results = connectToMySQL('login_and_registration').query_db(query)
+        results = connectToMySQL('private_wall').query_db(query)
         # Create an empty list to append our instances of friends
         users = []
         # Iterate over the db results and create instances of friends with cls.
@@ -51,7 +51,7 @@ class User:
     def get_one(cls, data):
         query = "SELECT * FROM users WHERE id = %(id)s;"
         results = connectToMySQL(
-            'login_and_registration').query_db(query, data)
+            'private_wall').query_db(query, data)
         if len(results) == 0:
             return False
         return (cls(results[0]))
@@ -62,11 +62,11 @@ class User:
     @staticmethod
     def validate_register(user):
         is_valid = True  # we assume this is true
-        if len(user['fname']) < 1:
-            flash("First Name cannot be blank.", "register")
+        if len(user['fname']) < 2:
+            flash("First Name should be at least 2 characters.", "register")
             is_valid = False
         if len(user['lname']) < 1:
-            flash("Last Name cannot be blank.", "register")
+            flash("Last Name should be at least 2 characters.", "register")
             is_valid = False
         if not EMAIL_REGEX.match(user['email']):
             flash("Invalid email address!", "register")
@@ -82,3 +82,15 @@ class User:
         if (user['password']) != (user['cpassword']):
             flash("Confirmed password must match Password!", "register")
         return is_valid
+
+    @classmethod
+    def send_to(cls, data):
+        query = "SELECT * FROM users WHERE id != %(id)s;"
+        # make sure to call the connectToMySQL function with the schema you are targeting. #(change name in '  ')
+        results = connectToMySQL('private_wall').query_db(query, data)
+        # Create an empty list to append our instances of friends
+        users = []
+        # Iterate over the db results and create instances of friends with cls.
+        for user in results:
+            users.append(cls(user))
+        return users

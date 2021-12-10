@@ -1,0 +1,16 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 800px;
+  height: auto;
+  display: inline-block;
+  border: 2px solid black;
+  margin: auto;
+}
+.register-container {
+  display: block;
+  border: 2px solid;
+}

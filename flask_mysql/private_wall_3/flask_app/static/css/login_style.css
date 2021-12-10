@@ -1,0 +1,27 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.container {
+  width: 900px;
+  height: 500px;
+  margin: auto;
+  border: 2px solid;
+  padding: 20px;
+}
+
+.message {
+  border: 2px solid;
+  width: 300px;
+  display: flex;
+  margin: 10px;
+}
+.delete-btn {
+  display: inline-block;
+}
+.message-info {
+  display: inline-block;
+}
+.message-gap {
+  margin: 5px;
+}

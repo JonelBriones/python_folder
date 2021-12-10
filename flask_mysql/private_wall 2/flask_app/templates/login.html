@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>{{user.first_name}} Logged In</h1>
+    <a href="/logout">Logout</a>
+    <table>
+        <tr>
+            <th>Full Name</th>
+            <th>Email</th>
+        </tr>
+        <tr>
+            <td>{{user.first_name}} {{user.last_name}}</td>
+            <td>{{user.email}}</td>
+        </tr>
+    </table>
+    <div class="messages">
+        <h1>Message(s) for you</h1>
+        {% for user in get_messages%}
+            <table>
+                <tr>
+                    <th>{{user.message}}</th>
+                    <th>{{user.name}}</th>
+                    <th>{{user.first_name}}</th>
+                </tr>
+            </table>
+            {{user.message}}
+        {% endfor %}
+    </div>
+    <div class="create_messages">
+        <h1>Send Messages</h1>
+        {% for user in get_all_users%}
+            <form action="/create_message" method="POST">
+                <label for="{{user.first_name}}">{{user.first_name}}</label>
+                <input type="text" name="message">
+                <input type="hidden" name="user.id">
+                <input type="submit" value="Send">
+            </form>
+        {% endfor %}
+        
+    </div>
+    
+    
+</body>
+</html>

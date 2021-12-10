@@ -1,5 +1,6 @@
 from flask_app.models.user import User
 from flask_app.models.login import Login
+from flask_app.models.message import Message
 from flask_app import app
 from flask import render_template, redirect, request, session, flash
 from flask_bcrypt import Bcrypt
@@ -68,7 +69,7 @@ def dashboard():
     data = {
         "id": session['user_id']
     }
-    return render_template("login.html", user=User.get_one(data))
+    return render_template("login.html", user=User.get_one(data), friends=User.send_to(data), messages=Message.get_my_messages(data))
 
 
 @app.route('/logout')
