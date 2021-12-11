@@ -1,0 +1,47 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 800px;
+  height: auto;
+  display: flex;
+  margin: 50px auto;
+  gap: 100px;
+}
+.register-container {
+  width: 500px;
+  height: 400px;
+  display: block;
+  border: 2px solid;
+  padding: 10px;
+  background-color: aqua;
+}
+
+#register-form {
+  margin: 0px;
+  text-align: center;
+}
+.login-container {
+  width: 500px;
+  height: 400px;
+  display: block;
+  border: 2px solid;
+  padding: 10px;
+  background-color: aqua;
+}
+#login-form {
+  margin: 0px;
+  text-align: center;
+}
+label {
+  display: block;
+  margin: 5px;
+}
+h1 {
+  text-align: center;
+}
+.btn {
+  margin: 10px;
+}

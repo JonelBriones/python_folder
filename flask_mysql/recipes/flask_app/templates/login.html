@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="nav">
+        <h1>Welcome {{user.first_name}}!</h1>   
+        <a href="/create">Create</a>
+        <a href="logout">Logout</a>
+    </div>
+    <div class="container">
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Under 30 Minutes?</th>
+                <th>Actions</th>
+            </tr>
+            <!-- for loop -->
+            {% for recipe in recipes%}
+            <tr>
+                <td>{{recipe.name}}</td>
+                <td>{{recipe.time}}</td>
+                <td>
+                    <a href="/view/{{recipe.id}}">View Instructions</a>
+                    <a href="/update/{{recipe.id}}">Edit</a>
+                    <a href="/delete/{{recipe.id}}">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+            <!-- endfor -->
+        </table>
+    </div>
+</body>
+</html>
